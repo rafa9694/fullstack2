@@ -10,7 +10,8 @@ Sistema TODO List multiusuário com autenticação JWT, desenvolvido como parte 
 - Java 17 + Spring Boot 3.2
 - Spring Security + JWT (jjwt 0.12)
 - Spring Data JPA + Hibernate
-- PostgreSQL (produção) / H2 (testes)
+- PostgreSQL (desenvolvimento/produção)
+- H2 (testes automatizados)
 - Springdoc OpenAPI 2 (Swagger UI)
 - JUnit 5 + Mockito
 
@@ -102,7 +103,7 @@ docker-compose up --build
 Acesse:
 - Frontend: http://localhost
 - Backend API: http://localhost:8080
-- Swagger UI: http://localhost:8080/swagger-ui.html
+- Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 ### Opção 2 — Execução local
 
@@ -141,7 +142,10 @@ cd jtech-tasklist-backend
 
 Cobertura inclui:
 - Testes unitários: `RegisterUserUseCase`, `AuthenticateUserUseCase`, `CreateTaskListUseCase`, `CreateTaskUseCase`
-- Testes de integração: `AuthControllerIntegrationTest` (com H2)
+- Testes de integração: `AuthControllerIntegrationTest`,
+`AuthControllerIntegrationTest`,
+`TaskControllerIntegrationTest`,
+`TaskListControllerIntegrationTest`
 
 ### Frontend
 
@@ -151,7 +155,9 @@ npm run test:unit
 npm run test:coverage
 ```
 
-Cobertura inclui: `authStore`, `taskListStore`
+Cobertura inclui: 
+- `authStore (autenticação e persistência de sessão)`
+- `taskListStore (gerenciamento de listas de tarefas)`
 
 ---
 
@@ -185,7 +191,7 @@ Cobertura inclui: `authStore`, `taskListStore`
 | PATCH | `/tasks/{id}/complete` | Marcar como concluída |
 | DELETE | `/tasks/{id}` | Excluir tarefa |
 
-Documentação interativa completa disponível em `/swagger-ui.html`.
+Documentação interativa completa disponível em `/swagger-ui/index.html`.
 
 ---
 

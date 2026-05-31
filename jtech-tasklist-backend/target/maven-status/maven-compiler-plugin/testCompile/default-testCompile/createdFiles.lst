@@ -1,0 +1,7 @@
+com\jtech\tasklist\adapters\input\web\controllers\TaskControllerIntegrationTest.class
+com\jtech\tasklist\application\usecases\tasklist\CreateTaskListUseCaseTest.class
+com\jtech\tasklist\adapters\input\web\controllers\AuthControllerIntegrationTest.class
+com\jtech\tasklist\application\usecases\task\CreateTaskUseCaseTest.class
+com\jtech\tasklist\application\usecases\auth\RegisterUserUseCaseTest.class
+com\jtech\tasklist\application\usecases\auth\AuthenticateUserUseCaseTest.class
+com\jtech\tasklist\adapters\input\web\controllers\TaskListControllerIntegrationTest.class

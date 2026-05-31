@@ -89,40 +89,95 @@ src/
 ## Como executar
 
 ### Pré-requisitos
-- Docker e Docker Compose
-- OU: Java 17+, Node 20+, PostgreSQL
 
-### Opção 1 — Docker Compose (recomendado)
+#### Backend
+
+* Java 17+
+* Maven 3.9+
+* PostgreSQL (opcional, caso não utilize o profile local)
+
+#### Frontend
+
+* Node.js 20+
+* npm
+
+#### Alternativa
+
+* Docker Desktop (para execução completa via containers)
+
+---
+
+## Opção 1 — Execução completa com Docker
 
 ```bash
-git clone <seu-fork>
-cd fullstack2
 docker-compose up --build
 ```
 
 Acesse:
-- Frontend: http://localhost
-- Backend API: http://localhost:8080
-- Swagger UI: http://localhost:8080/swagger-ui/index.html
 
-### Opção 2 — Execução local
+* Frontend: http://localhost
+* Backend: http://localhost:8080
+* Swagger UI: http://localhost:8080/swagger-ui/index.html
 
-**Backend:**
+---
+
+## Opção 2 — Desenvolvimento local com PostgreSQL
+
+### Backend
+
 ```bash
-# Suba o PostgreSQL (ou configure o application.yml)
 cd jtech-tasklist-backend
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
-**Frontend:**
+### Frontend
+
 ```bash
 cd jtech-tasklist-frontend
-cp .env.example .env
 npm install
 npm run dev
 ```
 
-Acesse o frontend em http://localhost:5173
+Acesse:
+
+* Frontend: http://localhost:5173
+* Backend: http://localhost:8080
+* Swagger UI: http://localhost:8080/swagger-ui/index.html
+
+---
+
+## Opção 3 — Desenvolvimento local com H2 (sem PostgreSQL)
+
+### Backend
+
+```bash
+cd jtech-tasklist-backend
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+```
+
+Acesse:
+
+* API: http://localhost:8080
+* Swagger UI: http://localhost:8080/swagger-ui/index.html
+* H2 Console: http://localhost:8080/h2-console
+
+Configuração do H2:
+
+* JDBC URL: `jdbc:h2:mem:tasklist`
+* Usuário: `sa`
+* Senha: (vazia)
+
+### Frontend
+
+```bash
+cd jtech-tasklist-frontend
+npm install
+npm run dev
+```
+
+Acesse:
+
+* Frontend: http://localhost:5173
 
 ---
 
